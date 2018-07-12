@@ -2,7 +2,7 @@
 <html>
 <head>
 
-    <title>DOWNLOAD COMICS FREE</title>
+    <title>TẢI EBOOK MIỄN PHÍ</title>
     <!-- <meta http-equiv="refresh" content="300"> -->
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
@@ -31,22 +31,28 @@
     <meta property="twitter:image" content="imgs/gazette-kcrg.png">
 
     <!-- INCLUDES -->
-    <!-- Base styles: Libraries -->
-    <link rel="stylesheet" href="css/lib/bootstrap.css" />
+	
+	<link rel="stylesheet" href="css/lib/bootstrap.css" />
     <link rel="stylesheet" href="css/lib/bootstrap-responsive.css" />
     <link rel="stylesheet" href="css/lib/font-awesome-4.2.0.css" />
-    <link rel="stylesheet" href="css/lib/jquery.dataTables.min.css" />
-    
-    <!-- Base styles -->
+    <link rel="stylesheet" href="css/lib/dataTables.min.css" />
+    <!-- Base styles: Libraries -->
+   <!-- Base styles -->
     <link rel="stylesheet" href="css/base.css" />
-    <link rel="stylesheet" href="css/base-datatable.css" />
+	
+    
+    <!-- JS: Libraries -->
+    <script src="js/lib/jquery.js"></script>
+   <script src="js/lib/dataTables.min.js"></script>
+  
 
     <!-- JS: Libraries -->
-    <script src="js/lib/jquery-1.11.1.js"></script>
-    <script src="js/lib/jquery.dataTables.min.js"></script>
+ 
+ 
     <script src="js/lib/tabletop.js"></script>
     <script src="js/lib/underscore.js"></script>
-    <script src="js/lib/handlebars-v1.3.0.js"></script>
+    <script src="js/lib/handlebars-v4.0.11.js"></script>
+   
 	    <!-- End Google Analytics Javascript -->
 		</head>
 <body>
@@ -80,7 +86,7 @@
 
     <!-- CONTENT GOES HERE -->
     <div id="body-content">
-        <h1 class="hide-iframe">DownLoad Free Comics</h1>
+        <h1 class="hide-iframe">TẢI EBOOK MIỄN PHÍ</h1>
         <!-- Subhead -->
         <div class="header header-sub hide-desktop show-iframe">
             <div class="header-sub-header">
@@ -88,42 +94,99 @@
             </div>
         </div>
         <!-- Content box-->
-        <div id="content-box">
-            <p id="first-p" class="intro-text">FreeComics is an awesome place to download DC, Marvel, Image, Dark Horse, Dynamite, IDW, Oni, Valiant, Zenescope and many more Comics totally for FREE.</p>
-            <table id="searchable-table" class="display">
+        
+		<div id="content-box">
+            <p id="first-p" class="intro-text">Trang web tải ebook miễn phí cung cấp ebook định dạng epub, pdf và chế độ đọc sách online tiện lợi, cập nhật sách mới hàng ngày ! Mọi người sưu tầm được ebook hay có thể chia sẻ <a href="https://goo.gl/forms/aGnow23PkgbYb02M2" >TẠI ĐÂY</a></p>
+            	
+				<table id="searchable" class="display" style="width: 100%">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>File(.zip or .cbr)</th>
-						<th>Category</th>
-                       
+						
+                        <th>IMG</th>
+						 <th>TÊN SÁCH</th>
+						   <th>TÁC GIẢ</th> 
+							<th>EPUB</th>	
+								<th>PDF</th>	
+								<th>READ ONLINE</th>
                     </tr>
                 </thead>
-                <tbody></tbody>
-            </table>
-        <!-- Close content box-->
+				<tbody></tbody>
+               </table>
        </div>
+	   
+	   
+	   
+	   
+	   
+
        <div id="footer" class="header hide-desktop show-mobile">
             <a href="#">Scroll to top</a>
         </div>
     <!-- Close body content-->
+	
+	
     </div>
     <!-- Templates -->
-    <script id="datatable-template" type="text/x-handlebars-template">
-        {{#each elements}}
-            <tr>
-                <td data-title="Name:">{{ name }}</td>
-				<td data-title="DownLoad:"><a href="{{ link }}" target="_blank">Link</a></td>
-                <td data-title="Cat:">{{ cat }}</td>
-                
-                
-            </tr>
-        {{/each}}
-    </script>
-    <!-- Custom JS -->
+   
+    <!-- Custom JS 
     <script src="js/base.js"></script>
     <script src="js/datatable-tabletop-load.js"></script>
-    <!-- Close content-->
+  Close content-->
     </div>
+	<script src="js/base.js"></script>
+    <script src="js/datatable-tabletop-load.js"></script>
+	<script>
+    $(document).ready(function () {
+        $('#searchable').DataTable({
+		    "ajax": "file.json",
+			responsive: true,
+			"aaSorting": [[ 0, "asc" ]],
+			"oLanguage": {
+            "sLengthMenu": "_MENU_ records per page"
+			},			
+			"columnDefs": [
+      {  "width": "20%", "targets": 0 },
+      { "width": "10%", "targets": 1 },
+	 { "width": "20%", "targets": 2 },
+	 { "width": "10%", "targets": 3 },
+	 { "width": "10%", "targets": 4 },
+	 { "width": "10%", "targets": 5 },
+          ],
+			"columns": [
+			{  "render": function (data, type, Row, meta) {                           
+							return '<img  src="'+Row.FIELD4+'">';
+							                        					
+						} },
+                 {"data": "FIELD1" },
+				 {"data": "FIELD2" },
+                 {  "render": function (data, type, Row, meta) {
+                           if( Row.FIELD3 !== "" )
+							return '<a  href="'+Row.FIELD3+'">Link</a>';
+							else
+							return '';
+                        					
+						} },
+						{  "render": function (data, type, Row, meta) {
+                           if( Row.FIELD6 !== "" )
+							return '<a  href="'+Row.FIELD6+'">Link</a>';
+							else
+							return '';
+                        					
+						} },
+						{  "render": function (data, type, Row, meta) {
+                           if( Row.FIELD7 !== "" )
+							return '<a  href="'+Row.FIELD7+'">Link</a>';
+							else
+							return '';
+                        					
+						} },
+						
+                
+            ],
+			
+        });
+    });
+	
+</script>
     </body>
 </html>

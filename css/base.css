@@ -2,93 +2,6 @@
 table, th, td {
     border:1px solid black;
 }
-
-table.dataTable thead {
-     background-color: #ffa200;
-}
-/*-----*/
-  @media only screen and (min-width: 320px) and (max-width: 860px) {
-	  
-.dataTables_wrapper tbody th, .dataTables_wrapper tbody td {
-    padding: 2px 2px;
-}
-	  
-	  
-#searchable-table_wrapper select {
-	width: 100px;
-}
-
-.dataTables_wrapper .row-fluid .span6 {
-    width: 100% !important;
-    margin: 0px !important;
-  }
-   .dataTables_wrapper .dataTables_filter label {
-    width: 100% !important;
-    text-align: left !important;
-    font-size: 16px !important;
-    font-weight: bold !important;
-	
-  }
-
-  .dataTables_wrapper .dataTables_filter input {
-	width: 98% !important;
-	padding-left: 2% !important;
-    padding-right: 0px !important;
-    padding-top: 1% !important;
-    padding-bottom: 1% !important;
-    margin-left: 0px;
-  }
-  
-    .dataTables_wrapper .dataTables_length {
-    float: left !important;
-    width: 98% !important;
-    padding-right: 1%;
-    padding-left: 1%;
-  }
-
-  .dataTables_wrapper .dataTables_length select, .dataTables_wrapper .dataTables_length label {
-    width: 100% !important;
-    font-size: 16px !important;
-    font-weight: bold !important;
-    text-align: left;
-  }
-
-  .dataTables_wrapper .dataTables_length select {
-    height: 30px !important;
-    margin-bottom: 0px;
-  }
-  
-    
-  .dataTables_wrapper .dataTables_info, .dataTables_wrapper .dataTables_paginate {
-  	text-align: center;
-  }
-
-  .dataTables_wrapper .dataTables_info {
-  	padding-left: 5px;
-  	font-weight: bold;
-  }
-
-
-  
-  .dataTables_wrapper .dataTables_filter {
-    float: left !important;
-    width: 98% !important;
-    padding-top: 5px !important;
-    padding-right: 1% !important;
-    padding-left: 1% !important;
-    padding-bottom: 15px !important;
-   
-  }
-  .dataTables_wrapper .dataTables_paginate .paginate_button {
-  	min-width: 30px;
-	height: auto;
-	padding: 2px 5px;
-	margin-left: 0px;
-  }
-   
-}
-
-
 /* Body */
 html {
   margin: 0;
@@ -170,7 +83,7 @@ a {
 	float: left;
 	margin: 10px 0 10px 10px;
 	width: auto;
-	padding-top: 4px;
+	    padding-top: 4px;
 }
 
 .header h3 {
@@ -421,7 +334,7 @@ a {
 }
 
 /* Styles for mobile devices */
-@media (max-width: 860px) {
+@media (max-width: 600px) {
 	/* Universal classes */
 	.hide-mobile {
 		display: none;

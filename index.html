@@ -2,7 +2,7 @@
 <html>
 <head>
 
-    <title>TẢI EBOOK MIỄN PHÍ</title>
+    <title>DOWNLOAD COMICS FREE</title>
     <!-- <meta http-equiv="refresh" content="300"> -->
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
@@ -31,32 +31,27 @@
     <meta property="twitter:image" content="imgs/gazette-kcrg.png">
 
     <!-- INCLUDES -->
-	
-	<link rel="stylesheet" type="text/css" href="/css/lib/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="/css/lib/bootstrap-responsive.css" />
-    <link rel="stylesheet" type="text/css" href="/css/lib/font-awesome-4.2.0.css" />
-    
     <!-- Base styles: Libraries -->
-   <!-- Base styles -->
-    <link rel="stylesheet" type="text/css" href="/css/base.css" />
-	
+    <link rel="stylesheet" href="css/lib/bootstrap.css" />
+    <link rel="stylesheet" href="css/lib/bootstrap-responsive.css" />
+    <link rel="stylesheet" href="css/lib/font-awesome-4.2.0.css" />
+   
     
+    <!-- Base styles -->
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/base-datatable.css" />
+
     <!-- JS: Libraries -->
-    
+   
+    <script src="js/lib/tabletop.js"></script>
+    <script src="js/lib/underscore.js"></script>
+    <script src="js/lib/handlebars-v1.3.0.js"></script>
+	
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css"/>
  
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
-
-  
-  
-
-    <!-- JS: Libraries -->
- 
- 
-
-   
 	    <!-- End Google Analytics Javascript -->
 		</head>
 <body>
@@ -90,7 +85,7 @@
 
     <!-- CONTENT GOES HERE -->
     <div id="body-content">
-        <h1 class="hide-iframe">TẢI EBOOK MIỄN PHÍ</h1>
+        <h1 class="hide-iframe">DownLoad Free Comics</h1>
         <!-- Subhead -->
         <div class="header header-sub hide-desktop show-iframe">
             <div class="header-sub-header">
@@ -98,93 +93,48 @@
             </div>
         </div>
         <!-- Content box-->
-        
-		<div id="content-box">
-            <p id="first-p" class="intro-text">Trang web tải ebook miễn phí cung cấp ebook định dạng epub, pdf và chế độ đọc sách online tiện lợi, cập nhật sách mới hàng ngày ! Mọi người sưu tầm được ebook hay có thể chia sẻ <a href="https://goo.gl/forms/aGnow23PkgbYb02M2" >TẠI ĐÂY</a></p>
-            	
-				<table id="searchable" class="display" style="width: 100%">
+        <div id="content-box">
+            <p id="first-p" class="intro-text">FreeComics is an awesome place to download DC, Marvel, Image, Dark Horse, Dynamite, IDW, Oni, Valiant, Zenescope and many more Comics totally for FREE.</p>
+            <table id="searchable-table" class="display">
                 <thead>
                     <tr>
-						
                         <th>IMG</th>
 						 <th>TÊN SÁCH</th>
 						   <th>TÁC GIẢ</th> 
 							<th>EPUB</th>	
 								<th>PDF</th>	
 								<th>READ ONLINE</th>
+                       
                     </tr>
                 </thead>
-				<tbody></tbody>
-               </table>
+                <tbody></tbody>
+            </table>
+        <!-- Close content box-->
        </div>
-	       <div id="footer" class="header hide-desktop show-mobile">
+       <div id="footer" class="header hide-desktop show-mobile">
             <a href="#">Scroll to top</a>
         </div>
     <!-- Close body content-->
-	
-	
     </div>
-
-    </div>
-	<script type="text/javascript" src="/js/base.js"></script>
-    <script type="text/javascript" src="/js/datatable-tabletop-load.js"></script>
-	
-    </body>
-</html>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#searchable').DataTable({
-		    "ajax": "file.json",
-			responsive: true,
-			"aaSorting": [[ 0, "asc" ]],
-			"oLanguage": {
-            "sLengthMenu": "_MENU_ records per page"
-			},			
-			"columnDefs": [
-      {  "width": "20%", "targets": 0 },
-      { "width": "10%", "targets": 1 },
-	 { "width": "20%", "targets": 2 },
-	 { "width": "10%", "targets": 3 },
-	 { "width": "10%", "targets": 4 },
-	 { "width": "10%", "targets": 5 },
-          ],
-			"columns": [
-			{  "render": function (data, type, Row, meta) {                           
-							return '<img  src="'+Row.FIELD4+'">';
-							                        					
-						} },
-                 {"data": "FIELD1" },
-				 {"data": "FIELD2" },
-                 {  "render": function (data, type, Row, meta) {
-                           if( Row.FIELD3 !== "" )
-							return '<a  href="'+Row.FIELD3+'">Link</a>';
-							else
-							return '';
-                        					
-						} },
-						{  "render": function (data, type, Row, meta) {
-                           if( Row.FIELD6 !== "" )
-							return '<a  href="'+Row.FIELD6+'">Link</a>';
-							else
-							return '';
-                        					
-						} },
-						{  "render": function (data, type, Row, meta) {
-                           if( Row.FIELD7 !== "" )
-							return '<a  href="'+Row.FIELD7+'">Link</a>';
-							else
-							return '';
-                        					
-						} },
-						
+    <!-- Templates -->
+    <script id="datatable-template" type="text/x-handlebars-template">
+        {{#each elements}}
+            <tr>
+				
+				<td data-title="IMG:"><img src="{{ anh }}"></td>
+                <td data-title="TÊN SÁCH:">{{ tensach }}</td>
+				<td data-title="TÁC GIẢ:">{{ tacgia }}</td>
+				<td data-title="EPUB:"><a href="{{ epub }}" target="_blank">Link</a></td>
+				<td data-title="PDF:"><a href="{{ pdf }}" target="_blank">Link</a></td>
+				<td data-title="READ ONLINE:"><a href="{{ read }}" target="_blank">Link</a></td>                        
                 
-            ],
-			
-        });
-    });
-	
-</script>
+            </tr>
+        {{/each}}
+    </script>
+    <!-- Custom JS -->
+    <script src="js/base.js"></script>
+    <script src="js/datatable-tabletop-load.js"></script>
+    <!-- Close content-->
+    </div>
     </body>
 </html>
-
-

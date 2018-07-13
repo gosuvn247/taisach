@@ -35,18 +35,23 @@
     <link rel="stylesheet" href="css/lib/bootstrap.css" />
     <link rel="stylesheet" href="css/lib/bootstrap-responsive.css" />
     <link rel="stylesheet" href="css/lib/font-awesome-4.2.0.css" />
-    <link rel="stylesheet" href="css/lib/jquery.dataTables.min.css" />
+   
     
     <!-- Base styles -->
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/base-datatable.css" />
 
     <!-- JS: Libraries -->
-    <script src="js/lib/jquery-1.11.1.js"></script>
-    <script src="js/lib/jquery.dataTables.min.js"></script>
+   
     <script src="js/lib/tabletop.js"></script>
     <script src="js/lib/underscore.js"></script>
     <script src="js/lib/handlebars-v1.3.0.js"></script>
+	
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css"/>
+ 
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
 	    <!-- End Google Analytics Javascript -->
 		</head>
 <body>
@@ -115,6 +120,7 @@
     <script id="datatable-template" type="text/x-handlebars-template">
         {{#each elements}}
             <tr>
+				
 				<td data-title="IMG:"><img src="{{ anh }}"></td>
                 <td data-title="TÊN SÁCH:">{{ tensach }}</td>
 				<td data-title="TÁC GIẢ:">{{ tacgia }}</td>

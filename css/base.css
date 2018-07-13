@@ -8,16 +8,17 @@ table.dataTable thead {
 }
 /*-----*/
 
-.dataTables_wrapper .dataTables_filter input {
-    margin-left: 0em; 
-}
+
 
   @media only screen and (min-width: 320px) and (max-width: 860px) {
 	  
 .dataTables_wrapper tbody th, .dataTables_wrapper tbody td {
     padding: 2px 2px;
 }
-	  
+	 
+.dataTables_wrapper .dataTables_filter input {
+    margin-left: 0em; 
+}	 
 	  
 #searchable-table_wrapper select {
 	width: 100px;

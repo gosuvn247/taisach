@@ -143,7 +143,7 @@
 <script>
     $(document).ready(function () {
         $('#searchable').DataTable({
-		    "ajax": "file.json",
+		    "ajax": "data.json",
 			responsive: true,
 			"aaSorting": [[ 0, "asc" ]],
 			"oLanguage": {
@@ -159,28 +159,28 @@
           ],
 			"columns": [
 			{  "render": function (data, type, Row, meta) {                           
-							return '<img  src="'+Row.FIELD4+'">';
+							return '<img  src="'+Row.D+'">';
 							                        					
 						} },
-                 {"data": "FIELD1" },
-				 {"data": "FIELD2" },
+                 {"data": "A" },
+				 {"data": "B" },
                  {  "render": function (data, type, Row, meta) {
-                           if( Row.FIELD3 !== "" )
-							return '<a  href="'+Row.FIELD3+'">Link</a>';
+                           if( Row.C !== "" )
+							return '<a  href="'+Row.C+'">Link</a>';
 							else
 							return '';
                         					
 						} },
 						{  "render": function (data, type, Row, meta) {
-                           if( Row.FIELD6 !== "" )
-							return '<a  href="'+Row.FIELD6+'">Link</a>';
+                           if( Row.E !== "" )
+							return '<a  href="'+Row.E+'">Link</a>';
 							else
 							return '';
                         					
 						} },
 						{  "render": function (data, type, Row, meta) {
-                           if( Row.FIELD7 !== "" )
-							return '<a  href="'+Row.FIELD7+'">Link</a>';
+                           if( Row.F !== "" )
+							return '<a  href="'+Row.F+'">Link</a>';
 							else
 							return '';
                         					

@@ -1,3 +1,22 @@
+// URL beginning and end, which will be used with the key
+// To give Tabletop a URL
+var google_docs_one = 'https://docs.google.com/spreadsheet/pub?hl=en_US&hl=en_US&key=';
+var google_docs_two = '&output=html';
+
+// Google Docs spreadsheet key
+var spreadsheet_key = '11nngABsOuxPUDNyLphekk_Cx3OdgWfvWy9l_69VdOn8';
+
+// Template sources and what DIVs they will appear in
+var templates = [
+    {
+        "templatesource": "#datatable-template",
+        "templatehtml": "#searchable-table tbody",
+        "sheet": "Sheet1"
+    }
+];
+
+// DataTables formatting options
+// More options: http://datatables.net/plug-ins/sorting
 
 // Formatted numbers: i.e. numbers with commas
 jQuery.extend( jQuery.fn.dataTableExt.oSort, {
@@ -43,3 +62,73 @@ jQuery.extend( jQuery.fn.dataTableExt.oSort, {
     }
 });
 
+// Load up the DataTable
+function loadDataTable() {
+    // Load Datatables after Tabletop is loaded
+    $('#searchable-table').dataTable({
+        "bAutoWidth": false,
+        "oLanguage": {
+            "sLengthMenu": "_MENU_ records per page"
+        },
+        "iDisplayLength": 10,
+        "aaSorting": [[ 0, "asc" ]],
+        "aoColumns": [
+           {
+                "sWidth": "20%"
+                // "sType": "formatted-num" 
+            },{
+                "sWidth": "10%"
+                // "sType": "formatted-num" 
+            },{
+                "sWidth": "10%"
+                // "sType": "formatted-num" 
+            },{
+                "sWidth": "10%"
+                // "sType": "formatted-num" 
+            },{
+                "sWidth": "10%"
+                // "sType": "formatted-num" 
+            },{
+                "sWidth": "10%"
+                // "sType": "formatted-num" 
+            }
+        ],
+        // Fix thead to top of page when scrolling past it
+        "initComplete": function(settings, json) {
+            $('#searchable-table').show();
+        }
+    });
+// Close loadDataTable
+};
+
+// Use Handlebars to load data from Tabletop to page
+function loadToDOM(tabletop_data, tabletop) {
+    // Loop through templates
+    _.each(templates, function(element, num_templates) {
+    	// Grab HTML of template and compile with Handlebars
+    	var template_html = element['templatehtml'];    
+    	var source = $(element["templatesource"] + "").html();
+    	var sheet = element["sheet"];
+        var handlebarscompile = Handlebars.compile(source);
+
+		// Render the templates onto page
+		$(template_html).append(handlebarscompile( tabletop.sheets(sheet) ));
+	// Close each statement
+    }, this);
+
+    loadDataTable();
+}
+
+
+// Pull data from Google spreadsheet via Tabletop
+function initializeTabletopObject(){
+	Tabletop.init({
+    	key: google_docs_one + spreadsheet_key + google_docs_two,
+    	callback: loadToDOM,
+    	simpleSheet: false,
+    	debug: false
+    });
+}
+
+// Load Tabletop
+initializeTabletopObject();
